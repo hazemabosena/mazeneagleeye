@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mazen EagleEye | Command Center</title>
+  <link rel="canonical" href="https://mazeneagleeye.com" />
+  <link rel="icon" type="image/png" href="assets/icons/favicon-32.png?v=2" />
+  <link rel="apple-touch-icon" href="assets/icons/favicon-192.png?v=2" />
+  <meta property="og:site_name" content="Mazen EagleEye" />
+  <meta property="og:title" content="Mazen EagleEye | Command Center" />
+  <meta property="og:description" content="Creator Command Center with automation, AI systems, and Discord bots." />
+  <meta property="og:url" content="https://mazeneagleeye.com" />
+  <meta property="og:image" content="https://mazeneagleeye.com/assets/images/logo.jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="halo halo-left" aria-hidden="true"></div>
+  <div class="halo halo-right" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="#hero" class="brand">ME</a>
+      <nav>
+        <a href="#trust" data-i18n="navTrust">Trust</a>
+        <a href="#systems" data-i18n="navSystems">Systems</a>
+        <a href="#projects" data-i18n="navProjects">Projects</a>
+        <a href="#videos" data-i18n="navVideos">Videos</a>
+        <a href="#ai-chat" data-i18n="navAI">AI</a>
+      </nav>
+      <div class="lang-switch">
+        <label class="sr-only" for="lang-select">Language</label>
+        <select id="lang-select" aria-label="Select language">
+          <option value="en">English</option>
+          <option value="ar">???????</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="de">Deutsch</option>
+          <option value="it">Italiano</option>
+          <option value="pt">Português</option>
+          <option value="tr">Türkçe</option>
+          <option value="ru">???????</option>
+          <option value="id">Bahasa Indonesia</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="section hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal" data-delay="0">
+          <p class="kicker" data-i18n="heroTag">Creator Command Center</p>
+          <h1 data-i18n="heroName">Mazen EagleEye</h1>
+          <p class="subtitle" data-i18n="heroDescription">I build creative tools with Python and Node.js, from Discord bots and automation tools to web apps that help online communities. I love experimenting with new ideas, leveling up my coding skills, and shipping projects that are actually useful. More projects and advanced systems are coming soon.</p>
+          <div class="cta-row">
+            <a class="btn btn-main" href="https://www.youtube.com/@MAZENEAGLEEYE" target="_blank" rel="noopener" data-i18n="heroYouTube">Open YouTube</a>
+            <a class="btn btn-ghost" href="https://discord.com/users/1019254470191890473" target="_blank" rel="noopener" data-i18n="heroDiscord">Open Discord</a>
+          </div>
+        </div>
+        <aside class="hero-panel reveal" data-delay="120">
+          <h2 data-i18n="statsTitle">Live Stats</h2>
+          <div class="stats" id="stats-grid"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="trust" class="section">
+      <div class="container">
+        <div class="section-head reveal" data-delay="0">
+          <p class="kicker" data-i18n="trustTag">Proof Of Work</p>
+          <h2 data-i18n="trustTitle">Creator Trust</h2>
+        </div>
+        <div class="trust-grid" id="trust-grid"></div>
+      </div>
+    </section>
+
+    <section id="systems" class="section">
+      <div class="container">
+        <div class="section-head reveal" data-delay="0">
+          <p class="kicker" data-i18n="systemsTag">What I Build</p>
+          <h2 data-i18n="systemsTitle">Featured Systems</h2>
+        </div>
+        <div class="systems-grid">
+          <article class="system-card reveal tilt" data-delay="80">
+            <h3 data-i18n="sys1Title">Guide Engine</h3>
+            <p data-i18n="sys1Text">Structured tutorials for fast learning, cleaner loadouts, and better team play.</p>
+          </article>
+          <article class="system-card reveal tilt" data-delay="140">
+            <h3 data-i18n="sys2Title">Community Ops</h3>
+            <p data-i18n="sys2Text">Event coordination, moderation workflows, and Tacticool support for members.</p>
+          </article>
+          <article class="system-card reveal tilt" data-delay="200">
+            <h3 data-i18n="sys3Title">Creator Automation</h3>
+            <p data-i18n="sys3Text">Bots and content pipelines to publish updates, highlights, and smart responses.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-head reveal" data-delay="0">
+          <p class="kicker" data-i18n="projectsTag">Code & Projects</p>
+          <h2 data-i18n="projectsTitle">Projects & Code</h2>
+          <p class="subtitle" data-i18n="projectsIntro">I build creative tools with Python and Node.js, from Discord bots and automation tools to web apps that help online communities. I love experimenting with new ideas, leveling up my coding skills, and shipping projects that are actually useful. More projects and advanced systems are coming soon.</p>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card reveal tilt" data-delay="80">
+            <h3 data-i18n="proj1Title">Tacticool Discord Bot (TACTIOPBOT)</h3>
+            <p data-i18n="proj1Text">Clan missions, operator picker, and an auto-generated 500x1301 mission image.</p>
+          </article>
+          <article class="project-card reveal tilt" data-delay="140">
+            <h3 data-i18n="proj2Title">AI Multi-Tool Website</h3>
+            <p data-i18n="proj2Text">Flask-powered AI hub with assistant, sentiment, speech-to-text, study tools, and text generation.</p>
+          </article>
+          <article class="project-card reveal tilt" data-delay="200">
+            <h3 data-i18n="proj3Title">AI YouTube Automation System</h3>
+            <p data-i18n="proj3Text">Auto-generate videos and voice, then publish to YouTube with zero manual editing.</p>
+          </article>
+          <article class="project-card reveal tilt" data-delay="260">
+            <h3 data-i18n="proj4Title">Mega Discord Bot (All-in-One)</h3>
+            <p data-i18n="proj4Text">AI chat, image generation, music, tickets, games, moderation, and welcome system.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="videos" class="section">
+      <div class="container">
+        <div class="section-head reveal" data-delay="0">
+          <p class="kicker" data-i18n="videosTag">Tacticool Feed</p>
+          <h2 data-i18n="videosTitle">Latest Videos</h2>
+        </div>
+        <div class="videos-grid" id="videos-grid"></div>
+      </div>
+    </section>
+
+    <section id="ai-chat" class="section">
+      <div class="container">
+        <div class="section-head reveal" data-delay="0">
+          <p class="kicker" data-i18n="chatTag">Assistant</p>
+          <h2 data-i18n="chatTitle">Talk With My AI</h2>
+        </div>
+        <div class="ai-shell reveal" data-delay="80">
+          <div class="ai-box" aria-live="polite"></div>
+          <div class="quick-prompts" id="quick-prompts"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="action" class="section">
+      <div class="container action-grid">
+        <article class="action-card reveal" data-delay="0" data-href="https://market.my.games/games/90">
+          <p class="chip" data-i18n="actionTagOne">Support</p>
+          <h3 data-i18n="mygamesTitle">Use my code in MY.GAMES web (mazen)</h3>
+          <p data-i18n="mygamesText">Support the channel by using my creator code when available in events and promotions.</p>
+        </article>
+        <article class="action-card reveal" data-delay="120" data-href="https://discord.gg/tacticool">
+          <p class="chip" data-i18n="actionTagTwo">Community</p>
+          <h3 data-i18n="tacticoolTitle">Join Tacticool Discord</h3>
+          <p data-i18n="tacticoolText">Meet players, get Tacticool updates, and build your team in the official community.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>Copyright 2026 Mazen EagleEye</p>
+      <a href="#hero" data-i18n="backTop">Back to top</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/languages.js"></script>
+  <script src="js/youtube.js"></script>
+  <script src="js/ai-chat.js"></script>
+</body>
+</html>
+
+
+
+
+
+

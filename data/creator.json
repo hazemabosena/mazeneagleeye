@@ -1,0 +1,12 @@
+﻿{
+  "name": "Mazen EagleEye",
+  "tagline": "Creator Command Center",
+  "description": "Developer building creative tools with Python and Node.js for Discord bots, automation, and web apps that help online communities.",
+  "youtube": "https://www.youtube.com/@MAZENEAGLEEYE",
+  "discord": "https://discord.com/users/1019254470191890473",
+  "stats": [
+    { "label": "YouTube Subscribers", "value": "1466" },
+    { "label": "Discord Server Members", "value": "209" },
+    { "label": "Discord Friends", "value": "531" }
+  ]
+}
