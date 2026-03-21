@@ -558,3 +558,24 @@ footer {
   transform-style: preserve-3d;
   will-change: transform;
 }
+
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.btn-main.btn-icon svg {
+  color: #07152c;
+}
+
+.btn-ghost.btn-icon svg {
+  color: var(--text);
+}
