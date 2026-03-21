@@ -579,3 +579,17 @@ footer {
 .btn-ghost.btn-icon svg {
   color: var(--text);
 }
+
+.btn-discord {
+  background: #5865f2;
+  color: #ffffff;
+  box-shadow: 0 14px 28px rgba(88, 101, 242, 0.35);
+}
+
+.btn-discord:hover {
+  transform: translateY(-2px);
+}
+
+.btn-discord svg {
+  color: #ffffff;
+}
