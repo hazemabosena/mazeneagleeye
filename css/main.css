@@ -566,14 +566,21 @@ footer {
   gap: 10px;
 }
 
-.btn-icon svg {\r\n  width: 22px;\r\n  height: 22px;\r\n  fill: currentColor;\r\n}
+.btn-main.btn-ghost
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
 
-.btn-main.btn-icon svg {\r\n  width: 22px;\r\n  height: 22px;\r\n  fill: currentColor;\r\n}
+.btn-icon svg {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
+}
 
-.btn-ghost.btn-icon svg {\r\n  width: 22px;\r\n  height: 22px;\r\n  fill: currentColor;\r\n}
-
-
-
-
-
-
+.btn-main {
+  color: #0b0f1d;
+}
