@@ -4,6 +4,11 @@
   const VIDEO_COUNT = 6;
   const SHORTS_COUNT = 6;
 
+  window.YT_CONFIG = {
+    apiKey: YT_API_KEY,
+    channelId: CHANNEL_ID
+  };
+
   const fallbackVideos = [
     {
       title: "Latest Tacticool Uploads",

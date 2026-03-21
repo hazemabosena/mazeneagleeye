@@ -1,17 +1,14 @@
 ﻿(() => {
-  const fallbackCreator = {
-    name: "Mazen EagleEye",
-    stats: [
-      { label: "YouTube Subscribers", value: "1466" },
-      { label: "Discord Server Members", value: "209" },
-      { label: "Discord Friends", value: "531" }
-    ]
-  };
-
   const fallbackTrust = [
     "Official MY.GAMES Creator Partner",
     "Tacticool Community Helper",
     "Trusted Tacticool Content Creator"
+  ];
+
+  const statsConfig = [
+    { key: "subscribers", label: "Subscribers" },
+    { key: "views", label: "Views" },
+    { key: "videos", label: "Videos" }
   ];
 
   async function getJSON(path, fallback) {
@@ -30,22 +27,24 @@
     }
   }
 
-  function animateNumber(rawValue, element) {
-    const match = String(rawValue).match(/^(\d+(?:\.\d+)?)(.*)$/);
-    if (!match) {
-      element.textContent = rawValue;
+  function animateNumber(rawValue, element, formatter) {
+    const target = Number(rawValue);
+    if (!Number.isFinite(target)) {
+      element.textContent = String(rawValue);
       return;
     }
 
-    const target = Number(match[1]);
-    const suffix = match[2] || "";
     const duration = 700;
     const start = performance.now();
 
     function step(now) {
       const p = Math.min((now - start) / duration, 1);
-      const value = (target * p).toFixed(target % 1 ? 1 : 0);
-      element.textContent = `${value}${suffix}`;
+      const value = target * p;
+      if (formatter) {
+        element.textContent = formatter(value, p);
+      } else {
+        element.textContent = value.toFixed(target % 1 ? 1 : 0);
+      }
       if (p < 1) {
         requestAnimationFrame(step);
       }
@@ -111,17 +110,57 @@
       return;
     }
 
-    const creator = await getJSON("data/creator.json", fallbackCreator);
-    const stats = Array.isArray(creator.stats) && creator.stats.length ? creator.stats : fallbackCreator.stats;
-
     host.innerHTML = "";
-    stats.forEach((item) => {
+    statsConfig.forEach((item) => {
       const node = document.createElement("article");
       node.className = "stat";
-      node.innerHTML = `<strong>0</strong><span>${item.label}</span>`;
+      node.dataset.statKey = item.key;
+      node.innerHTML = `<strong>Loading</strong><span>${item.label}</span>`;
       host.appendChild(node);
-      animateNumber(item.value, node.querySelector("strong"));
     });
+
+    const config = window.YT_CONFIG || {};
+    if (!config.apiKey || !config.channelId) {
+      return;
+    }
+
+    try {
+      const endpoint = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${config.channelId}&key=${config.apiKey}`;
+      const response = await fetch(endpoint);
+      if (!response.ok) {
+        return;
+      }
+
+      const data = await response.json();
+      const stats = data?.items?.[0]?.statistics;
+      if (!stats) {
+        return;
+      }
+
+      const formatter = new Intl.NumberFormat();
+      const mapping = {
+        subscribers: stats.subscriberCount,
+        views: stats.viewCount,
+        videos: stats.videoCount
+      };
+
+      Object.entries(mapping).forEach(([key, value]) => {
+        const card = host.querySelector(`[data-stat-key="${key}"]`);
+        const strong = card?.querySelector("strong");
+        if (!strong) {
+          return;
+        }
+
+        animateNumber(value, strong, (num, progress) => {
+          if (progress < 1) {
+            return formatter.format(Math.max(0, Math.floor(num)));
+          }
+          return formatter.format(Number(value));
+        });
+      });
+    } catch {
+      return;
+    }
   }
 
   async function renderTrust() {
