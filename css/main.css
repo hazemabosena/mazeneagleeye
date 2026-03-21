@@ -566,17 +566,12 @@ footer {
   gap: 10px;
 }
 
-.btn-icon svg {
-  width: 18px;
-  height: 18px;
-  fill: currentColor;
-}
+.btn-icon svg {\r\n  width: 22px;\r\n  height: 22px;\r\n  fill: currentColor;\r\n}
 
-.btn-main.btn-icon svg {\r\n  color: #0b0f1d;\r\n}
+.btn-main.btn-icon svg {\r\n  width: 22px;\r\n  height: 22px;\r\n  fill: currentColor;\r\n}
 
-.btn-ghost.btn-icon svg {
-  color: var(--text);
-}
+.btn-ghost.btn-icon svg {\r\n  width: 22px;\r\n  height: 22px;\r\n  fill: currentColor;\r\n}
+
 
 
 
