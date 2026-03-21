@@ -572,11 +572,12 @@ footer {
   fill: currentColor;
 }
 
-.btn-main.btn-icon svg {\r\n  color: #ffffff;\r\n}
+.btn-main.btn-icon svg {\r\n  color: #0b0f1d;\r\n}
 
 .btn-ghost.btn-icon svg {
   color: var(--text);
 }
+
 
 
 
