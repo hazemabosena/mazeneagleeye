@@ -480,14 +480,14 @@
 
   const languageLabels = {
     en: "English",
-    ar: "???????",
+    ar: "العربية",
     fr: "Français",
     es: "Español",
     de: "Deutsch",
     it: "Italiano",
     pt: "Português",
     tr: "Türkçe",
-    ru: "???????",
+    ru: "Русский",
     id: "Bahasa Indonesia"
   };
 
