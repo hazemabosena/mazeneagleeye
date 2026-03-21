@@ -137,14 +137,19 @@ body {
 }
 
 #lang-select {
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(120, 160, 255, 0.45);
+  background:
+    linear-gradient(135deg, rgba(12, 20, 44, 0.95), rgba(9, 16, 35, 0.9));
   color: var(--text);
-  padding: 8px 36px 8px 14px;
-  border-radius: 999px;
+  padding: 9px 40px 9px 16px;
+  border-radius: 14px;
   cursor: pointer;
   font-weight: 700;
+  letter-spacing: 0.02em;
   appearance: none;
+  box-shadow:
+    0 12px 28px rgba(6, 9, 19, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
   background-image:
     linear-gradient(45deg, transparent 50%, var(--text) 50%),
     linear-gradient(135deg, var(--text) 50%, transparent 50%),
@@ -152,17 +157,35 @@ body {
   background-position:
     calc(100% - 18px) 50%,
     calc(100% - 12px) 50%,
-    calc(100% - 40px) 50%;
+    calc(100% - 42px) 50%;
   background-size:
     6px 6px,
     6px 6px,
     1px 18px;
   background-repeat: no-repeat;
-  min-width: 160px;
+  min-width: 170px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#lang-select:hover {
+  transform: translateY(-1px);
+  border-color: rgba(40, 215, 197, 0.55);
+  box-shadow:
+    0 14px 32px rgba(6, 9, 19, 0.55),
+    0 0 22px rgba(40, 215, 197, 0.2);
+}
+
+#lang-select:focus {
+  outline: none;
+  border-color: rgba(255, 142, 43, 0.7);
+  box-shadow:
+    0 16px 36px rgba(6, 9, 19, 0.6),
+    0 0 24px rgba(255, 142, 43, 0.25);
 }
 
 #lang-select option {
   color: #0a1024;
+  font-weight: 600;
 }
 
 .section {

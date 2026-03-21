@@ -1,6 +1,6 @@
-﻿const http = require("http");
-const fs = require("fs");
-const path = require("path");
+﻿import http from "http";
+import fs from "fs";
+import path from "path";
 
 const PORT = 4173;
 const ROOT = process.cwd();
@@ -41,3 +41,4 @@ http.createServer((req, res) => {
 }).listen(PORT, () => {
   console.log(`Creator website running at http://localhost:${PORT}`);
 });
+
