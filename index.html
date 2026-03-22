@@ -188,15 +188,30 @@
 
   <footer>
     <div class="container footer-inner">
-      <p>Copyright 2026 Mazen EagleEye</p>
+      <p>2026 Mazen EagleEye</p>
       <a href="#hero" data-i18n="backTop">Back to top</a>
     </div>
   </footer>
+
+  <audio id="bg-music" preload="auto" loop>
+    <source src="song/Memory%20Reboot.mp4" type="audio/mp4" />
+  </audio>
+
+  <button class="music-toggle" id="music-toggle" type="button" aria-pressed="true" aria-label="Toggle background music">
+    <svg class="music-icon music-on" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M9 3v12.1A3.4 3.4 0 1 0 11 18V7.5l8-2.2V9a3.4 3.4 0 1 0 2 3V3.5L9 3Z" />
+    </svg>
+    <svg class="music-icon music-off" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M9 3v7.4l2 2V7.5l8-2.2V9a3.4 3.4 0 0 0 .4 1.6l1.6 1.6V3.5L9 3Z" />
+      <path d="M4.5 3.5 3 5l4 4v6.1A3.4 3.4 0 1 0 9 18v-3.1l6.9 6.9 1.5-1.5L4.5 3.5Z" />
+    </svg>
+  </button>
 
   <script src="js/main.js"></script>
   <script src="js/languages.js"></script>
   <script src="js/youtube.js"></script>
   <script src="js/ai-chat.js"></script>
+  <script src="js/music.js"></script>
 </body>
 </html>
 
