@@ -16,6 +16,7 @@ const mime = {
   ".svg": "image/svg+xml",
   ".ico": "image/x-icon",
   ".webp": "image/webp",
+  ".mp4": "audio/mp4",
   ".woff": "font/woff",
   ".woff2": "font/woff2",
   ".ttf": "font/ttf",
@@ -39,7 +40,13 @@ const server = http.createServer(async (req, res) => {
       pathname = "/index.html";
     }
 
-    const filePath = join(root, pathname);
+    const filePath = resolve(root, `.${pathname}`);
+    if (!filePath.startsWith(root)) {
+      res.writeHead(403, { "Content-Type": "text/plain; charset=utf-8" });
+      res.end("Forbidden");
+      return;
+    }
+
     const exists = await fileExists(filePath);
     const fallbackPath = join(root, "index.html");
     const finalPath = exists ? filePath : fallbackPath;

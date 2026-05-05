@@ -69,21 +69,32 @@
       const card = document.createElement("article");
       card.className = "video-card";
 
-      const thumb = video.thumbnail
-        ? `<img class="video-thumb" src="${video.thumbnail}" alt="${video.title}" loading="lazy" />`
-        : "";
+      if (video.thumbnail) {
+        const image = document.createElement("img");
+        image.className = "video-thumb";
+        image.src = video.thumbnail;
+        image.alt = video.title;
+        image.loading = "lazy";
+        card.appendChild(image);
+      }
 
-      const safeDescription = (video.description || "").slice(0, 120);
+      const title = document.createElement("h3");
+      title.textContent = video.title;
 
-      card.innerHTML = `
-        ${thumb}
-        <h3>${video.title}</h3>
-        <p>${safeDescription}</p>
-        <div class="video-meta">
-          <span>${video.duration}</span>
-          <span>${video.date}</span>
-        </div>
-      `;
+      const description = document.createElement("p");
+      description.textContent = (video.description || "").slice(0, 120);
+
+      const meta = document.createElement("div");
+      meta.className = "video-meta";
+
+      const duration = document.createElement("span");
+      duration.textContent = video.duration;
+
+      const date = document.createElement("span");
+      date.textContent = video.date;
+
+      meta.append(duration, date);
+      card.append(title, description, meta);
 
       card.tabIndex = 0;
       const open = () => window.open(video.url, "_blank", "noopener");

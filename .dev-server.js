@@ -13,7 +13,10 @@ const types = {
   ".png": "image/png",
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
-  ".svg": "image/svg+xml"
+  ".svg": "image/svg+xml",
+  ".mp4": "audio/mp4",
+  ".woff": "font/woff",
+  ".woff2": "font/woff2"
 };
 
 http.createServer((req, res) => {
@@ -29,6 +32,20 @@ http.createServer((req, res) => {
 
   fs.readFile(filePath, (err, data) => {
     if (err) {
+      if (target !== "/index.html" && !path.extname(target)) {
+        fs.readFile(path.join(ROOT, "index.html"), (fallbackErr, fallbackData) => {
+          if (fallbackErr) {
+            res.writeHead(404);
+            res.end("Not Found");
+            return;
+          }
+
+          res.writeHead(200, { "Content-Type": types[".html"] });
+          res.end(fallbackData);
+        });
+        return;
+      }
+
       res.writeHead(404);
       res.end("Not Found");
       return;

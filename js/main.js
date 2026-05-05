@@ -104,19 +104,35 @@
     });
   }
 
+  function renderStatCards(host, values) {
+    host.innerHTML = "";
+    statsConfig.forEach((item) => {
+      const node = document.createElement("article");
+      node.className = "stat";
+      node.dataset.statKey = item.key;
+
+      const strong = document.createElement("strong");
+      strong.textContent = values[item.key] || "—";
+
+      const label = document.createElement("span");
+      label.textContent = item.label;
+
+      node.append(strong, label);
+      host.appendChild(node);
+    });
+  }
+
   async function renderStats() {
     const host = document.getElementById("stats-grid");
     if (!host) {
       return;
     }
 
-    host.innerHTML = "";
-    statsConfig.forEach((item) => {
-      const node = document.createElement("article");
-      node.className = "stat";
-      node.dataset.statKey = item.key;
-      node.innerHTML = `<strong>Loading</strong><span>${item.label}</span>`;
-      host.appendChild(node);
+    const creator = await getJSON("data/creator.json", {});
+    renderStatCards(host, {
+      subscribers: creator?.stats?.[0]?.value || "1,466",
+      views: creator?.stats?.[1]?.value || "209",
+      videos: creator?.stats?.[2]?.value || "531"
     });
 
     const config = window.YT_CONFIG || {};
@@ -178,7 +194,14 @@
       const card = document.createElement("article");
       card.className = "trust-item reveal";
       card.dataset.delay = String(index * 80);
-      card.innerHTML = `<h3>${index + 1}</h3><p>${text}</p>`;
+
+      const heading = document.createElement("h3");
+      heading.textContent = String(index + 1);
+
+      const paragraph = document.createElement("p");
+      paragraph.textContent = text;
+
+      card.append(heading, paragraph);
       host.appendChild(card);
     });
   }
